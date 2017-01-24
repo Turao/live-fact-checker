@@ -11,27 +11,10 @@
     </div>
   <% end %>
 
-
-  <table>
-    <caption>Available users</caption>
-    <thead>
-      <tr>
-      <th> </th>
-        <th>User</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @people.each do |p| %>
-        <tr> 
-          <td> <%= radio_button_tag(:person_id, p.id, checked=(p==checker.person) ) %> </td> 
-          <td> <%= label_tag(:name, p.name) %> </td>
-          <td> <%= label_tag(:email, p.email) %> </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <div class="field">
+    <%= f.label :person %>
+    <%= f.collection_select :person_id, Person.all, :id, :name %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

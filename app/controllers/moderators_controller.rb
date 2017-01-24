@@ -15,22 +15,16 @@ class ModeratorsController < ApplicationController
   # GET /moderators/new
   def new
     @moderator = Moderator.new
-    @people = Person.all
-    @events = Event.all
   end
 
   # GET /moderators/1/edit
   def edit
-    @people = Person.all
-    @events = Event.all
   end
 
   # POST /moderators
   # POST /moderators.json
   def create
-    @person = Person.find(moderator_params[:person_id])
-    @event = Event.find(moderator_params[:event_id])
-    @moderator = Moderator.new(person: @person, event: @event)
+    @moderator = Moderator.new(moderator_params)
 
     respond_to do |format|
       if @moderator.save
@@ -75,6 +69,6 @@ class ModeratorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moderator_params
-      params.permit(:moderator, :person_id, :event_id)
+      params.require(:moderator).permit(:person_id, :event_id)
     end
 end

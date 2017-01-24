@@ -15,19 +15,16 @@ class CheckersController < ApplicationController
   # GET /checkers/new
   def new
     @checker = Checker.new
-    @people = Person.all
   end
 
   # GET /checkers/1/edit
   def edit
-    @people = Person.all
   end
 
   # POST /checkers
   # POST /checkers.json
   def create
-    @p = Person.find(checker_params[:person_id])
-    @checker = Checker.new(person: @p)
+    @checker = Checker.new(checker_params)
     
     respond_to do |format|
       if @checker.save
@@ -72,6 +69,6 @@ class CheckersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checker_params
-      params.permit(:checkers, :person_id)
+      params.require(:checker).permit(:person_id)
     end
 end

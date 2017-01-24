@@ -11,46 +11,15 @@
     </div>
   <% end %>
 
-  <table>
-    <caption>Available users</caption>
-    <thead>
-      <tr>
-      <th> </th>
-        <th>User</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @people.each do |p| %>
-        <tr> 
-          <td> <%= radio_button_tag(:person_id, p.id, checked=(p==politician.person) ) %> </td> 
-          <td> <%= label_tag(:name, p.name) %> </td>
-          <td> <%= label_tag(:email, p.email) %> </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="field">
+    <%= f.label :person %>
+    <%= f.collection_select :person_id, Person.all, :id, :name %>
+  </div>
 
-
-  <table>
-    <caption>Available Parties</caption>
-    <thead>
-      <tr>
-      <th> </th>
-        <th>Name</th>
-        <th>Abbreviation</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @parties.each do |p| %>
-        <tr> 
-          <td> <%= radio_button_tag(:party_id, p.id, checked=(p==politician.person) ) %> </td> 
-          <td> <%= label_tag(:name, p.name) %> </td>
-          <td> <%= label_tag(:abbreviation, p.abbreviation) %> </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="field">
+    <%= f.label :party %>
+    <%= f.collection_select :party_id, Party.all, :id, :abbreviation %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

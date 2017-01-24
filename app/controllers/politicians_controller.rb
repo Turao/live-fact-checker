@@ -15,22 +15,16 @@ class PoliticiansController < ApplicationController
   # GET /politicians/new
   def new
     @politician = Politician.new
-    @people = Person.all
-    @parties = Party.all
   end
 
   # GET /politicians/1/edit
   def edit
-    @people = Person.all
-    @parties = Party.all
   end
 
   # POST /politicians
   # POST /politicians.json
   def create
-    @person = Person.find(politician_params[:person_id])
-    @party = Party.find(politician_params[:party_id])
-    @politician = Politician.new(person: @person, party: @party)
+    @politician = Politician.new(politician_params)
 
     respond_to do |format|
       if @politician.save
@@ -75,6 +69,6 @@ class PoliticiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def politician_params
-      params.permit(:politician, :person_id, :party_id)
+      params.require(:politician).permit(:person_id, :party_id)
     end
 end
