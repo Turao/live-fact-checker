@@ -1,2 +1,4 @@
 # live-fact-checker
-Crowdsource fact checker application
+Crowdsourced fact checker application
+
+The aim here is to speed up fact checking to a level where we'll be able to show the veracity of a given statement in a real-time like pace.
