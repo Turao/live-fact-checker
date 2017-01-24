@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Veracity:</strong>
+  <%= @fact_check.veracity %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @fact_check.comment %>
+</p>
+
+<p>
+  <strong>Verifiedbymod:</strong>
+  <%= @fact_check.verifiedByMod %>
+</p>
+
+<%= link_to 'Edit', edit_fact_check_path(@fact_check) %> |
+<%= link_to 'Back', fact_checks_path %>

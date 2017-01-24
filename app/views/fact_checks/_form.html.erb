@@ -1,0 +1,32 @@
+<%= form_for(fact_check) do |f| %>
+  <% if fact_check.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fact_check.errors.count, "error") %> prohibited this fact_check from being saved:</h2>
+
+      <ul>
+      <% fact_check.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :veracity %>
+    <%= f.number_field :veracity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :verifiedByMod %>
+    <%= f.check_box :verifiedByMod %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

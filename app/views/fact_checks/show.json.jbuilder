@@ -1,0 +1,1 @@
+json.partial! "fact_checks/fact_check", fact_check: @fact_check

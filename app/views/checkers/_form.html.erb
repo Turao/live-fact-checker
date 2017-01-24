@@ -1,0 +1,39 @@
+<%= form_for(checker) do |f| %>
+  <% if checker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(checker.errors.count, "error") %> prohibited this checker from being saved:</h2>
+
+      <ul>
+      <% checker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table>
+    <caption>Available users</caption>
+    <thead>
+      <tr>
+      <th> </th>
+        <th>User</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |p| %>
+        <tr> 
+          <td> <%= radio_button_tag(:person_id, p.id, checked=(p==checker.person) ) %> </td> 
+          <td> <%= label_tag(:name, p.name) %> </td>
+          <td> <%= label_tag(:email, p.email) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

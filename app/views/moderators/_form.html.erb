@@ -1,0 +1,62 @@
+<%= form_for(moderator) do |f| %>
+  <% if moderator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(moderator.errors.count, "error") %> prohibited this moderator from being saved:</h2>
+
+      <ul>
+      <% moderator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <caption>Available users</caption>
+    <thead>
+      <tr>
+      <th> </th>
+        <th>User</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |p| %>
+        <tr> 
+          <td> <%= radio_button_tag(:person_id, p.id, checked=(p==moderator.person) ) %> </td> 
+          <td> <%= label_tag(:name, p.name) %> </td>
+          <td> <%= label_tag(:email, p.email) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+  <table>
+    <caption>Available Events</caption>
+    <thead>
+      <tr>
+      <th> </th>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |e| %>
+        <tr> 
+          <td> <%= radio_button_tag(:event_id, e.id, checked=(e==moderator.event) ) %> </td> 
+          <td> <%= label_tag(:title, e.title) %> </td>
+          <td> <%= label_tag(:date, e.date) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1 @@
+json.array! @fact_checks, partial: 'fact_checks/fact_check', as: :fact_check
