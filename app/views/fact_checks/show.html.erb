@@ -26,20 +26,32 @@
       <th> Checked by: </th>
       <th> Verified? </th>
       <th> Moderator </th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @fact_check.veracity %></td>
       <td><%= @fact_check.comment %></td>
-      <td><%= @fact_check.checker.getName %></td>
+
+      <% if @fact_check.moderator != nil %>      
+        <td><%= @fact_check.checker.getName %></td>
+      <% else %>
+        <td> [deleted] </td>
+      <% end %>
+
       <td><%= @fact_check.verifiedByMod %></td>
-      <td><%= @fact_check.moderator.getName %></td>
+
+      <% if @fact_check.moderator != nil %>
+        <td><%= @fact_check.moderator.getName %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+
+      <td> <%= link_to 'Edit', edit_fact_check_path(@fact_check) %> <td>
+      <td><%= link_to 'Destroy', @fact_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Edit', edit_fact_check_path(@fact_check) %> |
 <%= link_to 'Back', fact_checks_path %>

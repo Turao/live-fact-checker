@@ -21,9 +21,21 @@
       <td><%= source.url %></td>
       <td><%= source.fact_check.veracity %></td>
       <td><%= source.fact_check.comment %></td>
-      <td><%= source.fact_check.checker.getName %></td>
+
+      <% if source.fact_check.checker != nil %>
+        <td><%= source.fact_check.checker.getName %></td>
+      <% else %>
+        <td> [deleted] </td>
+      <% end %>
+
       <td><%= source.fact_check.verifiedByMod %></td>
-      <td><%= source.fact_check.moderator.getName %></td>
+      
+      <% if source.fact_check.moderator != nil %>
+        <td><%= source.fact_check.moderator.getName %></td>
+      <% else %>
+        <td> </td>
+      <% end %>
+
       <td><%= link_to 'Show', source %></td>
       <td><%= link_to 'Edit', edit_source_path(source) %></td>
       <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,8 +43,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Source', new_source_path %>
 <br> <%= link_to 'Back', root_path %>

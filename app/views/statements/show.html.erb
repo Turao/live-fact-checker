@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @statement.content %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Date</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @statement.content %></td>
+      <td><%= @statement.date %></td>
+      <td><%= link_to 'Edit', edit_statement_path(@statement) %></td>
+      <td><%= link_to 'Destroy', @statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Date:</strong>
-  <%= @statement.date %>
-</p>
-
-<%= link_to 'Edit', edit_statement_path(@statement) %> |
 <%= link_to 'Back', statements_path %>

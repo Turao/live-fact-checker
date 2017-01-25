@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @person.name %></td>
+      <td><%= @person.email %></td>
+      <td><%= link_to 'Edit', edit_person_path(@person) %></td>
+      <td><%= link_to 'Destroy', @person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

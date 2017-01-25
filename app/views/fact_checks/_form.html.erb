@@ -45,7 +45,7 @@
 
   <div class="field">
     <%= f.label :moderator %>
-    <%= f.collection_select :moderator_id, Moderator.all, :id, :getName %>
+    <%= f.collection_select :moderator_id, Moderator.all, :id, :getName, :include_blank => true %>
   </div>
 
   <div class="actions">

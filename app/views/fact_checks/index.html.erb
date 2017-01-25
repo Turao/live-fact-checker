@@ -22,12 +22,23 @@
         <td><%= fact_check.statement.content %></td>
         <td><%= fact_check.statement.politician.getName %></td>
 
-        
         <td><%= fact_check.veracity %></td>
         <td><%= fact_check.comment %></td>
-        <td><%= fact_check.checker.getName %></td>
+
+        <% if fact_check.moderator != nil %>      
+          <td><%= fact_check.checker.getName %></td>
+        <% else %>
+          <td> [deleted] </td>
+        <% end %>
+
         <td><%= fact_check.verifiedByMod %></td>
-        <td><%= fact_check.moderator.getName %></td>
+
+        <% if fact_check.moderator != nil %>
+          <td> <%= fact_check.moderator.getName %> </td>
+        <% else %>
+          <td></td>
+        <% end %>
+
         <td><%= link_to 'Show', fact_check %></td>
         <td><%= link_to 'Edit', edit_fact_check_path(fact_check) %></td>
         <td><%= link_to 'Destroy', fact_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,8 +46,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Fact Check', new_fact_check_path %>
 <br> <%= link_to 'Back', root_path %>
