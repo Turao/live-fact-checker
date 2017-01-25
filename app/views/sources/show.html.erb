@@ -1,9 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @source.url %>
-</p>
+<table>
+  <caption>Source</caption>
+  <thead>
+    <tr>
+      <th> URL </th>
+      <th> Veracity </th>
+      <th> Comment </th>
+      <th> Checked by: </th>
+      <th> Verified? </th>
+      <th> Moderator </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @source.url %></td>
+      <td><%= @source.fact_check.veracity %></td>
+      <td><%= @source.fact_check.comment %></td>
+      <td><%= @source.fact_check.checker.getName %></td>
+      <td><%= @source.fact_check.verifiedByMod %></td>
+      <td><%= @source.fact_check.moderator.getName %></td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>

@@ -25,7 +25,7 @@ class SourcesController < ApplicationController
   # POST /sources.json
   def create
     @source = Source.new(source_params)
-
+    
     respond_to do |format|
       if @source.save
         format.html { redirect_to @source, notice: 'Source was successfully created.' }
@@ -69,6 +69,6 @@ class SourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def source_params
-      params.require(:source).permit(:url)
+      params.require(:source).permit(:url, :fact_check_id)
     end
 end

@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :statement %>
+    <%= f.collection_select :statement_id, Statement.all, :id, :content %>
+  </div>
+
+  <div class="field">
     <%= f.label :veracity %>
-    <%= f.number_field :veracity %>
+    <%= f.select :veracity, FactCheck.veracities.keys.to_a %>
   </div>
 
   <div class="field">
@@ -22,8 +27,25 @@
   </div>
 
   <div class="field">
+    <%= f.fields_for :sources, @fact_check.sources do |s| %>
+    <%= s.label :source %>
+    <%= s.text_area :url %>
+    <% end %>
+  </div>  
+
+  <div class="field">
     <%= f.label :verifiedByMod %>
     <%= f.check_box :verifiedByMod %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checker %>
+    <%= f.collection_select :checker_id, Checker.all, :id, :getName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :moderator %>
+    <%= f.collection_select :moderator_id, Moderator.all, :id, :getName %>
   </div>
 
   <div class="actions">

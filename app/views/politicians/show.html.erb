@@ -14,8 +14,16 @@
       <tr>
         <td><%= @politician.person.name %></td>
         <td><%= @politician.person.email %></td>
-        <td><%= @politician.party.name %></td>
-        <td><%= @politician.party.abbreviation %></td>
+
+        <% if @politician.party != nil %>
+          <td><%= @politician.party.name %></td>
+          <td><%= @politician.party.abbreviation %></td>
+        <% else %>
+          <td> - </td>
+          <td> - </td>
+        <% end %>
+
+
         <td><%= link_to 'Destroy', @politician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Edit', edit_politician_path(@politician) %></td>
       </tr>

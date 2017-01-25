@@ -7,6 +7,7 @@ class CreateFactChecks < ActiveRecord::Migration[5.0]
 
       t.integer :checker_id
       t.integer :statement_id
+      t.integer :moderator_id
 
       t.timestamps
     end

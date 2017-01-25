@@ -3,7 +3,7 @@ class CreateSources < ActiveRecord::Migration[5.0]
     create_table :sources do |t|
       t.string :url
 
-      t.integer :factcheck_id
+      t.integer :fact_check_id
       
       t.timestamps
     end

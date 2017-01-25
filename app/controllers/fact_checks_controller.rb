@@ -15,6 +15,8 @@ class FactChecksController < ApplicationController
   # GET /fact_checks/new
   def new
     @fact_check = FactCheck.new
+    @source = Source.new()
+    @fact_check.sources << @source
   end
 
   # GET /fact_checks/1/edit
@@ -69,6 +71,8 @@ class FactChecksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fact_check_params
-      params.require(:fact_check).permit(:veracity, :comment, :verifiedByMod)
+      params.require(:fact_check).permit(:veracity, :comment,
+        :verifiedByMod, :statement_id, :checker_id, :moderator_id,
+        sources_attributes:[:id, :url])
     end
 end

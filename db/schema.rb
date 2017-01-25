@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170124024834) do
     t.boolean  "verifiedByMod"
     t.integer  "checker_id"
     t.integer  "statement_id"
+    t.integer  "moderator_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -72,9 +73,9 @@ ActiveRecord::Schema.define(version: 20170124024834) do
 
   create_table "sources", force: :cascade do |t|
     t.string   "url"
-    t.integer  "factcheck_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "fact_check_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "statements", force: :cascade do |t|
