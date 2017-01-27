@@ -1,0 +1,13 @@
+<h2> <%= link_to "Live Fact Checker", root_path %> </h2>
+
+<% if person_signed_in? %>
+ <ul>
+   <li> Logged as: <%= current_person.name %> </li>
+   <li> <%= link_to "Logout", destroy_person_session_path, method: :delete %> </li>
+ </ul>
+<% else %>
+  <ul>
+    <li> <%= link_to "Sign In", new_person_session_path %> </li>
+    <li> <%= link_to "Sign Up", new_person_registration_path %> </li>
+  </ul>
+<% end %>
