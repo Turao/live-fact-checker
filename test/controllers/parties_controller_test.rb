@@ -17,7 +17,9 @@ class PartiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create party" do
     assert_difference('Party.count') do
-      post parties_url, params: { party: { abbreviation: @party.abbreviation, name: @party.name } }
+      post parties_url, params: { party: { abbreviation: @party.abbreviation, 
+                                           name: @party.name } 
+                                         }
     end
 
     assert_redirected_to party_url(Party.last)
@@ -34,7 +36,9 @@ class PartiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update party" do
-    patch party_url(@party), params: { party: { abbreviation: @party.abbreviation, name: @party.name } }
+    patch party_url(@party), params: { party: { abbreviation: @party.abbreviation,
+                                                name: @party.name } 
+                                              }
     assert_redirected_to party_url(@party)
   end
 

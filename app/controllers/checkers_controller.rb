@@ -25,7 +25,7 @@ class CheckersController < ApplicationController
   # POST /checkers.json
   def create
     @checker = Checker.new(checker_params)
-    
+
     respond_to do |format|
       if @checker.save
         format.html { redirect_to @checker, notice: 'Checker was successfully created.' }

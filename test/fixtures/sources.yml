@@ -2,6 +2,8 @@
 
 one:
   url: MyString
+  fact_check: one
 
 two:
   url: MyString
+  fact_check: two

@@ -17,7 +17,9 @@ class ModeratorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create moderator" do
     assert_difference('Moderator.count') do
-      post moderators_url, params: { moderator: {  } }
+      post moderators_url, params: { moderator: { person_id: @moderator.person.id, 
+                                                  event_id: @moderator.event.id } 
+                                                }
     end
 
     assert_redirected_to moderator_url(Moderator.last)
@@ -34,7 +36,9 @@ class ModeratorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update moderator" do
-    patch moderator_url(@moderator), params: { moderator: {  } }
+    patch moderator_url(@moderator), params: { moderator: { person_id: @moderator.person.id, 
+                                                            event_id: @moderator.event.id } 
+                                                          }
     assert_redirected_to moderator_url(@moderator)
   end
 

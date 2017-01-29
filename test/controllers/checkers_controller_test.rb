@@ -17,7 +17,7 @@ class CheckersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create checker" do
     assert_difference('Checker.count') do
-      post checkers_url, params: { checker: {  } }
+      post checkers_url, params: { checker: { person_id: @checker.person.id } }
     end
 
     assert_redirected_to checker_url(Checker.last)
@@ -34,7 +34,7 @@ class CheckersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update checker" do
-    patch checker_url(@checker), params: { checker: {  } }
+    patch checker_url(@checker), params: { checker: { person_id: @checker.person.id } }
     assert_redirected_to checker_url(@checker)
   end
 

@@ -17,7 +17,11 @@ class StatementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create statement" do
     assert_difference('Statement.count') do
-      post statements_url, params: { statement: { content: @statement.content, date: @statement.date } }
+      post statements_url, params: { statement: { content: @statement.content, 
+                                                  date: @statement.date, 
+                                                  politician_id: @statement.politician.id, 
+                                                  event_id: @statement.event.id } 
+                                                }
     end
 
     assert_redirected_to statement_url(Statement.last)
@@ -34,7 +38,11 @@ class StatementsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update statement" do
-    patch statement_url(@statement), params: { statement: { content: @statement.content, date: @statement.date } }
+    patch statement_url(@statement), params: { statement: { content: @statement.content, 
+                                                            date: @statement.date, 
+                                                            politician_id: @statement.politician.id, 
+                                                            event_id: @statement.event.id } 
+                                                          }
     assert_redirected_to statement_url(@statement)
   end
 

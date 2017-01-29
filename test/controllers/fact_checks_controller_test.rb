@@ -17,7 +17,13 @@ class FactChecksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create fact_check" do
     assert_difference('FactCheck.count') do
-      post fact_checks_url, params: { fact_check: { comment: @fact_check.comment, veracity: @fact_check.veracity, verifiedByMod: @fact_check.verifiedByMod } }
+      post fact_checks_url, params: { fact_check: { comment: @fact_check.comment, 
+                                                    veracity: @fact_check.veracity, 
+                                                    verifiedByMod: @fact_check.verifiedByMod,
+                                                    statement_id: @fact_check.statement.id,
+                                                    checker_id: @fact_check.checker.id,
+                                                    moderator_id: @fact_check.moderator.id } 
+                                                  }
     end
 
     assert_redirected_to fact_check_url(FactCheck.last)
@@ -34,7 +40,13 @@ class FactChecksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update fact_check" do
-    patch fact_check_url(@fact_check), params: { fact_check: { comment: @fact_check.comment, veracity: @fact_check.veracity, verifiedByMod: @fact_check.verifiedByMod } }
+    patch fact_check_url(@fact_check), params: { fact_check: { comment: @fact_check.comment, 
+                                                               veracity: @fact_check.veracity, 
+                                                               verifiedByMod: @fact_check.verifiedByMod,
+                                                               statement_id: @fact_check.statement.id,
+                                                               checker_id: @fact_check.checker.id,
+                                                               moderator_id: @fact_check.moderator.id } 
+                                                             }
     assert_redirected_to fact_check_url(@fact_check)
   end
 

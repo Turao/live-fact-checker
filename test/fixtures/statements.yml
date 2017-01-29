@@ -3,7 +3,11 @@
 one:
   content: MyText
   date: 2017-01-24
+  politician: one
+  event: one
 
 two:
   content: MyText
   date: 2017-01-24
+  politician: two
+  event: two

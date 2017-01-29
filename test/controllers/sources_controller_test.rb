@@ -17,7 +17,8 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create source" do
     assert_difference('Source.count') do
-      post sources_url, params: { source: { url: @source.url } }
+      post sources_url, params: { source: { url: @source.url, 
+                                            fact_check_id: @source.fact_check.id } }
     end
 
     assert_redirected_to source_url(Source.last)
@@ -34,7 +35,8 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update source" do
-    patch source_url(@source), params: { source: { url: @source.url } }
+    patch source_url(@source), params: { source: { url: @source.url,
+                                                   fact_check_id: @source.fact_check.id } }
     assert_redirected_to source_url(@source)
   end
 
