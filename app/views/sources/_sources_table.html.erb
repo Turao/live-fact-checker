@@ -1,0 +1,43 @@
+<table>
+  <thead>
+    <tr>
+      <th> URL </th>
+      <th> Veracity </th>
+      <th> Comment </th>
+      <th> Checked by: </th>
+      <th> Verified? </th>
+      <th> Moderator </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sources.each do |source| %>
+    <tr>
+      <td><%= link_to source.url, source.url, :target => "_blank" %></td>
+      <td><%= source.fact_check.veracity %></td>
+      <td><%= source.fact_check.comment %></td>
+
+      <% if source.fact_check.checker != nil %>
+      <td><%= link_to source.fact_check.checker.getName, source.fact_check.checker %></td>
+      <% else %>
+        <td> [deleted] </td>
+      <% end %>
+
+      <td><%= source.fact_check.verifiedByMod %></td>
+      
+      <% if source.fact_check.moderator != nil %>
+        <td><%= link_to source.fact_check.moderator.getName, source.fact_check.moderator %></td>
+      <% else %>
+        <td> [no mod] </td>
+      <% end %>
+
+      <td><%= link_to 'Fact Check', source.fact_check %></td>
+      <td><%= link_to 'Statement', source.fact_check.statement %></td>
+      
+      <!-- <td><%= link_to 'Show', source %></td> -->
+      <td><%= link_to 'Edit', edit_source_path(source) %></td>
+      <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

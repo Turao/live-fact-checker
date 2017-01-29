@@ -11,6 +11,6 @@ class FactCheck < ApplicationRecord
   validates_length_of :comment, :minimum => 1, :maximum => 250, :allow_blank => false
 
   def getCheckerName()
-    Checker.find(self.checker_id).getName
+    self.checker.getName
   end
 end

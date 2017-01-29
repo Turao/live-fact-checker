@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% checkers.each do |checker| %>
+      <tr>
+        <td><%= link_to checker.person.name, checker %></td>
+        <td><%= checker.person.email %></td>
+        <td><%= link_to 'Edit', edit_checker_path(checker) %></td>
+        <td><%= link_to 'Destroy', checker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

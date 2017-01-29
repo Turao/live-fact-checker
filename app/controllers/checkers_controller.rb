@@ -1,6 +1,7 @@
 class CheckersController < ApplicationController
   before_action :set_checker, only: [:show, :edit, :update, :destroy]
 
+
   # GET /checkers
   # GET /checkers.json
   def index

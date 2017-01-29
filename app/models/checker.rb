@@ -1,8 +1,8 @@
 class Checker < ApplicationRecord
 	belongs_to :person
-  has_many :factchecks
+  has_many :fact_checks
 
   def getName()
-      Person.find(self.person_id).name
+      self.person.name
   end
 end

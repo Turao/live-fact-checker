@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% moderators.each do |moderator| %>
+      <tr>
+        <td><%= link_to moderator.person.name, moderator %></td>
+        <td><%= moderator.person.email %></td>
+        <td><%= link_to moderator.event.title, moderator.event %></td>
+        <td><%= moderator.event.date %></td>
+        <td><%= link_to 'Edit', edit_moderator_path(moderator) %></td>
+        <td><%= link_to 'Destroy', moderator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

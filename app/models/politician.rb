@@ -1,9 +1,9 @@
 class Politician < ApplicationRecord
 	has_many :statements
   belongs_to :person
-  belongs_to :party, optional: true
+  belongs_to :party
 
   def getName()
-      Person.find(self.person_id).name
+      self.person.name
   end
 end

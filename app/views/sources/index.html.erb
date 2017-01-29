@@ -1,48 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sources</h1>
-
-<table>
-  <caption>Source</caption>
-  <thead>
-    <tr>
-      <th> URL </th>
-      <th> Veracity </th>
-      <th> Comment </th>
-      <th> Checked by: </th>
-      <th> Verified? </th>
-      <th> Moderator </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sources.each do |source| %>
-    <tr>
-      <td><%= source.url %></td>
-      <td><%= source.fact_check.veracity %></td>
-      <td><%= source.fact_check.comment %></td>
-
-      <% if source.fact_check.checker != nil %>
-        <td><%= source.fact_check.checker.getName %></td>
-      <% else %>
-        <td> [deleted] </td>
-      <% end %>
-
-      <td><%= source.fact_check.verifiedByMod %></td>
-      
-      <% if source.fact_check.moderator != nil %>
-        <td><%= source.fact_check.moderator.getName %></td>
-      <% else %>
-        <td> </td>
-      <% end %>
-
-      <td><%= link_to 'Show', source %></td>
-      <td><%= link_to 'Edit', edit_source_path(source) %></td>
-      <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <h1>Sources</h1>
+  <%= render 'sources_table', sources: @sources %>
+</div>
 
 <%= link_to 'New Source', new_source_path %>
 <br> <%= link_to 'Back', root_path %>

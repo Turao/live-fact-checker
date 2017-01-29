@@ -1,19 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> <%= @organization.name %> </td>
-      <td> <%= link_to 'Edit', edit_organization_path(@organization) %> </td>
-      <td><%= link_to 'Destroy', @organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <h2> Details </h2>
+  <%= render 'organizations_table', organizations: [@organization] %>
+</div>
+
+<div>
+  <h2> Events held by organization: </h2>
+  <%= render 'events/events_table', events: @organization.events %>
+</div>
 
 <%= link_to 'Back', organizations_path %>

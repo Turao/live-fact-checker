@@ -1,57 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <caption>Statement given</caption>
-  <thead>
-    <tr>
-      <th> Statement </th>
-      <th> Made by </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @fact_check.statement.content %></td>
-      <td><%= @fact_check.statement.politician.getName %></td>
-    </tr>
-  </tbody>
-</table>
-
-
-<table>
-  <caption>Fact Check</caption>
-  <thead>
-    <tr>
-      <th> Veracity </th>
-      <th> Comment </th>
-      <th> Checked by: </th>
-      <th> Verified? </th>
-      <th> Moderator </th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @fact_check.veracity %></td>
-      <td><%= @fact_check.comment %></td>
-
-      <% if @fact_check.moderator != nil %>      
-        <td><%= @fact_check.checker.getName %></td>
-      <% else %>
-        <td> [deleted] </td>
-      <% end %>
-
-      <td><%= @fact_check.verifiedByMod %></td>
-
-      <% if @fact_check.moderator != nil %>
-        <td><%= @fact_check.moderator.getName %></td>
-      <% else %>
-        <td></td>
-      <% end %>
-
-      <td> <%= link_to 'Edit', edit_fact_check_path(@fact_check) %> <td>
-      <td><%= link_to 'Destroy', @fact_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <h1> Fact Check details: </h1>
+  <%= render 'fact_checks_table', fact_checks: [@fact_check] %>
+</div>
 
 <%= link_to 'Back', fact_checks_path %>

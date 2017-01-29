@@ -1,5 +1,5 @@
 class Statement < ApplicationRecord
-	has_many :factchecks
+	has_many :fact_checks
   belongs_to :politician
   belongs_to :event
 

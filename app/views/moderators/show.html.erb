@@ -1,26 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Event</th>
-      <th>Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div>
+  <h2> Details: </h2>
+  <%= render 'moderators_table', moderators: [@moderator] %>
+</div>
 
-  <tbody>
-      <tr>
-        <td><%= @moderator.person.name %></td>
-        <td><%= @moderator.person.email %></td>
-        <td><%= @moderator.event.title %></td>
-        <td><%= @moderator.event.date %></td>
-        <td><%= link_to 'Edit', edit_moderator_path(@moderator) %></td>
-        <td><%= link_to 'Destroy', @moderator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  </tbody>
-</table>
+<div>
+  <h2> Fact Checks verified: </h2>
+  <%= render 'fact_checks/fact_checks_table', fact_checks: @moderator.fact_checks %>
+</div>
 
 <%= link_to 'Back', moderators_path %>

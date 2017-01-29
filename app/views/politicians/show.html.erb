@@ -1,33 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Party</th>
-      <th>Abbreviation</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div>
+  <h2> Details: </h2>
+  <%= render 'politicians_table', politicians: [@politician] %>
+</div>
 
-  <tbody>
-      <tr>
-        <td><%= @politician.person.name %></td>
-        <td><%= @politician.person.email %></td>
-
-        <% if @politician.party != nil %>
-          <td><%= @politician.party.name %></td>
-          <td><%= @politician.party.abbreviation %></td>
-        <% else %>
-          <td> - </td>
-          <td> - </td>
-        <% end %>
-
-        <td><%= link_to 'Destroy', @politician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Edit', edit_politician_path(@politician) %></td>
-      </tr>
-  </tbody>
-</table>
+<div>
+  <h2> My Statements: </h2>
+  <%= render 'statements/statements_table', statements: @politician.statements %>
+</div>
 
 <%= link_to 'Back', politicians_path %>

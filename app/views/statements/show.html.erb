@@ -1,21 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @statement.content %></td>
-      <td><%= @statement.date %></td>
-      <td><%= link_to 'Edit', edit_statement_path(@statement) %></td>
-      <td><%= link_to 'Destroy', @statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <h1> Statement Details </h1>
+  <%= render 'statements_table', statements: [@statement] %>
+</div>
+
+<div>
+  <h1> Related Fact Checks </h1>
+  <%= render 'fact_checks/fact_checks_table', fact_checks: @statement.fact_checks %>
+</div>
 
 <%= link_to 'Back', statements_path %>

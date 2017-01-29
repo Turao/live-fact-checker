@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Party</th>
+      <th>Abbreviation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% politicians.each do |politician| %>
+      <tr>
+        <td><%= link_to politician.person.name, politician %></td>
+        <td><%= politician.person.email %></td>
+
+        <% if politician.party != nil %>
+          <td><%= link_to politician.party.name, politician.party %></td>
+          <td><%= link_to politician.party.abbreviation, politician.party %></td>
+        <% else %>
+          <td> - </td>
+          <td> - </td>
+        <% end %>
+
+        <td><%= link_to 'Edit', edit_politician_path(politician) %></td>
+        <td><%= link_to 'Destroy', politician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

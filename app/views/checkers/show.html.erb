@@ -1,22 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div>
+  <h2> Checker details: </h2>
+  <%= render 'checkers_table', checkers: [@checker] %>
+</div>
 
-  <tbody>
-      <tr>
-        <td><%= @checker.person.name %></td>
-        <td><%= @checker.person.email %></td>
-        <td><%= link_to 'Destroy', @checker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Edit', edit_checker_path(@checker) %></td>
-      </tr>
-  </tbody>
-</table>
+<div>
+  <h2> Fact Checks made by <%= @checker.getName %> </h2>
+  <%= render 'fact_checks/fact_checks_table', fact_checks: @checker.fact_checks %>
+</div>
 
 <%= link_to 'Back', checkers_path %>

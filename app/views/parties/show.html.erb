@@ -1,21 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Abbreviation</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> <%= @party.name %> </td>
-      <td> <%= @party.abbreviation %> </td>
-      <td> <%= link_to 'Edit', edit_party_path(@party) %> </td>
-      <td><%= link_to 'Destroy', @party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <h2> Details </h2>
+  <%= render 'parties_table', parties: [@party] %>
+</div>
+
+<div>
+  <h2> Politicians </h2>
+  <%= render 'politicians/politicians_table', politicians: @party.politicians %>
+</div>
 
 <%= link_to 'Back', parties_path %>

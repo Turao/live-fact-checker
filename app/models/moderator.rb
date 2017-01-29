@@ -4,6 +4,6 @@ class Moderator < ApplicationRecord
   belongs_to :event
 
   def getName()
-      Person.find(self.person_id).name
+      self.person.name
   end
 end
