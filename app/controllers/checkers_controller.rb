@@ -1,6 +1,6 @@
 class CheckersController < ApplicationController
   before_action :set_checker, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_person!
 
   # GET /checkers
   # GET /checkers.json

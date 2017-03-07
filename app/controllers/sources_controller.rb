@@ -1,5 +1,6 @@
 class SourcesController < ApplicationController
   before_action :set_source, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /sources
   # GET /sources.json

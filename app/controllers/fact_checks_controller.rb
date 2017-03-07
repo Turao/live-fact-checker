@@ -1,5 +1,6 @@
 class FactChecksController < ApplicationController
   before_action :set_fact_check, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /fact_checks
   # GET /fact_checks.json

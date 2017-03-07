@@ -1,5 +1,6 @@
 class PoliticiansController < ApplicationController
   before_action :set_politician, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /politicians
   # GET /politicians.json

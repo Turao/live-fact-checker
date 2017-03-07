@@ -1,5 +1,6 @@
 class ModeratorsController < ApplicationController
   before_action :set_moderator, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /moderators
   # GET /moderators.json

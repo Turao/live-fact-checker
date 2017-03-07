@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin_dashboard/index'
+
  devise_for :people
   get 'welcome/index'
   root 'welcome#index'

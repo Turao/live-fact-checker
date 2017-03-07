@@ -1,5 +1,6 @@
 class StatementsController < ApplicationController
   before_action :set_statement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /statements
   # GET /statements.json
