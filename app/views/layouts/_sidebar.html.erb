@@ -1,0 +1,45 @@
+<!-- Sidebar -->
+<nav class="nav
+            navbar-inverse
+            bg-inverse">
+
+  <div class="collapse navbar-collapse"
+       id="sidebarCollapse">
+    <div class="container-fluid">
+    	<ul class="navbar-nav justify-content-end">
+
+          <!-- if admin role on -->
+          <%= render "admin_dashboard/sidebar_admin" %>
+
+
+          <!-- if user role on -->
+          <!--
+    			
+          <a class="nav-link" href=<%= events_path %>> Events </a>
+    			<a class="nav-link" href=<%= admin_dashboard_index_path %>>Dashboard</a>
+          
+          -->
+
+
+          <%= link_to_if person_signed_in?, 
+      		"Logout", destroy_person_session_path, :method=>:delete,
+      		:class => "nav-link"  %>
+
+
+
+
+      		<%= link_to_unless person_signed_in?, 
+      		"Sign In", checkers_path, 
+      		:class => "nav-link"%>
+
+      		<%= link_to_unless person_signed_in?, 
+      		"Sign Up", new_person_path,
+      		:class => "nav-link" %>
+
+          
+
+    	</ul>
+    </div>
+  </div>
+
+</nav>

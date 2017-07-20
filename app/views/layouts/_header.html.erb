@@ -1,44 +1,24 @@
-<header>
+<!-- Fixed top navbar -->
+<nav class="navbar
+            navbar-inverse
+            navbar-fixed-top
+            bg-inverse">
+    <div class="navbar-header">
 
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- sidebar toggle button -->
+    <button class="navbar-toggler"
+            type="button" 
+            data-toggle="collapse"
+            data-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle sidebar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href=<%= root_path %>> Live Fact Checker </a>
+    <a class="navbar-brand" href=<%= root_path %>> 
+      Live Fact Checker
+    </a>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-        <a class="nav-link" href=<%= events_path %>> Events </a>
-          
-        </li>
-      </ul>
-
-        
-      <ul class="navbar-nav justify-content-end">
-      <li>
-        <a class="nav-link" href=<%= admin_dashboard_index_path %>>Dashboard</a>
-      </li>
-
-
-      <%= link_to_if person_signed_in?, 
-                     "Logout", destroy_person_session_path, :method=>:delete,
-                     :class => "nav-link"  %>
-
-      <%= link_to_unless person_signed_in?, 
-                         "Sign In", checkers_path, 
-                         :class => "nav-link"%>
-
-      <%= link_to_unless person_signed_in?, 
-                         "Sign Up", new_person_path,
-                         :class => "nav-link" %>
-
-      
-
-      </ul>
-
-    </div>
-  </nav>
-</header>
+  </div>
+</nav>
