@@ -3,6 +3,8 @@ class Moderator < ApplicationRecord
   belongs_to :person
   belongs_to :event
 
+  validates :person, uniqueness: true
+
   def getName()
       self.person.name
   end

@@ -3,6 +3,8 @@ class Politician < ApplicationRecord
   belongs_to :person
   belongs_to :party
 
+  validates :person, uniqueness: true
+  
   def getName()
       self.person.name
   end
