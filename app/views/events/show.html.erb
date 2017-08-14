@@ -1,20 +1,20 @@
 <div class="container">
 
-<div>
-  <h2> Details: </h2>
-  <%= render 'events_table', events: [@event] %>
-</div>
+  <div class="row">
+    <h2>Event details</h2>
+    <%= render 'events_table', events: [@event] %>
+  </div>
 
-<div>
-  <h2> Statements in this event: </h2>
-  <%= render 'statements/statements_table', statements: @event.statements %>
-</div>
+  <div class="row">
+    <h4>Statements in this event</h4>
+    <%= render 'statements/statements_table', statements: @event.statements %>
+  </div>
 
-<div>
-  <h2> Moderators: </h2>
-  <%= render 'moderators/moderators_table', moderators: @event.moderators %>
-</div>
+  <div class="row">
+    <h4>Moderators</h4>
+    <%= render 'moderators/moderators_table', moderators: @event.moderators %>
+  </div>
 
-<%= link_to 'Back', events_path %>
+  <%= link_to 'Back', events_path %>
 
 </div>

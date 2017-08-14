@@ -1,15 +1,15 @@
 <div class="container">
 
-<div>
-  <h2> Checker details: </h2>
-  <%= render 'checkers_table', checkers: [@checker] %>
-</div>
+  <div class="row">
+    <h2>Checker details</h2>
+    <%= render 'checkers_table', checkers: [@checker] %>
+  </div>
 
-<div>
-  <h2> Fact Checks made by <%= @checker.getName %> </h2>
-  <%= render 'fact_checks/fact_checks_table', fact_checks: @checker.fact_checks %>
-</div>
+  <div class="row">
+    <h4>Fact Checks made by <%= @checker.getName %></h4>
+    <%= render 'fact_checks/fact_checks_table', fact_checks: @checker.fact_checks %>
+  </div>
 
-<%= link_to 'Back', checkers_path %>
+  <%= link_to 'Back', checkers_path %>
 
 </div>

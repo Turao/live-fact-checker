@@ -1,10 +1,10 @@
 <div class="container">
 
-<div>
-  <h2> Details: </h2>
-  <%= render 'people_table', people: [@person] %>
-</div>
+  <div class="row">
+    <h2>Person details</h2>
+    <%= render 'people_table', people: [@person] %>
+  </div>
 
-<%= link_to 'Back', people_path %>
+  <%= link_to 'Back', people_path %>
 
 </div>

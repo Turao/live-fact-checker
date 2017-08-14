@@ -1,15 +1,15 @@
 <div class="container">
 
-<div>
-  <h2> Details: </h2>
-  <%= render 'politicians_table', politicians: [@politician] %>
-</div>
+  <div class="row">
+    <h2>Politician details</h2>
+    <%= render 'politicians_table', politicians: [@politician] %>
+  </div>
 
-<div>
-  <h2> My Statements: </h2>
-  <%= render 'statements/statements_table', statements: @politician.statements %>
-</div>
+  <div class="row">
+    <h4>Statements made by <%= @politician.getName %></h4>
+    <%= render 'statements/statements_table', statements: @politician.statements %>
+  </div>
 
-<%= link_to 'Back', politicians_path %>
+  <%= link_to 'Back', politicians_path %>
 
 </div>

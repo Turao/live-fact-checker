@@ -1,11 +1,9 @@
 <div class="container">
 
-<div>
-  <h1>Checkers</h1>
-  <%= render 'checkers_table', checkers: @checkers %>
-</div>
-
-<%= link_to 'New Checker', new_checker_path %>
-<br> <%= link_to 'Back', root_path %>
+  <div class="row">
+    <h1>Checkers</h1>
+    <%= render 'checkers_table', checkers: @checkers %>
+    <%= link_to 'New Checker', new_checker_path %>
+  </div>
 
 </div>

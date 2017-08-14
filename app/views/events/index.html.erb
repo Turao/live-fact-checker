@@ -1,11 +1,9 @@
 <div class="container">
 
-<div>
-  <h1>Events</h1>
-  <%= render 'events_table', events: @events %>
-</div>
-
-<%= link_to 'New Event', new_event_path %>
-<br> <%= link_to 'Back', root_path %>
+  <div class="row">
+    <h1>Events</h1>
+    <%= render 'events_table', events: @events %>
+    <%= link_to 'New Event', new_event_path %>
+  </div>
 
 </div>

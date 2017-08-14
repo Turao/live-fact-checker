@@ -1,11 +1,10 @@
 <div class="container">
 
-<div>
-  <h1>Organizations</h1>
-  <%= render 'organizations_table', organizations: @organizations %>
-</div>
+  <div class="row">
+    <h1>Organizations</h1>
+    <%= render 'organizations_table', organizations: @organizations %>
+  </div>
 
-<%= link_to 'New Organization', new_organization_path %>
-<br> <%= link_to 'Back', root_path %>
+  <%= link_to 'New Organization', new_organization_path %>
 
 </div>

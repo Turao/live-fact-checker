@@ -1,15 +1,15 @@
 <div class="container">
 
-<div>
-  <h2> Details </h2>
-  <%= render 'organizations_table', organizations: [@organization] %>
-</div>
+  <div class="row">
+    <h2>Details</h2>
+    <%= render 'organizations_table', organizations: [@organization] %>
+  </div>
 
-<div>
-  <h2> Events held by organization: </h2>
-  <%= render 'events/events_table', events: @organization.events %>
-</div>
+  <div class="row">
+    <h4>Events held by <%= @organization.name %></h4>
+    <%= render 'events/events_table', events: @organization.events %>
+  </div>
 
-<%= link_to 'Back', organizations_path %>
+  <%= link_to 'Back', organizations_path %>
 
 </div>

@@ -1,11 +1,10 @@
 <div class="container">
 
-<div>
-  <h1>Fact Checks</h1>
-  <%= render 'fact_checks_table', fact_checks: @fact_checks%>
-</div>
+  <div class="row">
+    <h1>Fact Checks</h1>
+    <%= render 'fact_checks_table', fact_checks: @fact_checks%>
+  </div>
 
-<%= link_to 'New Fact Check', new_fact_check_path %>
-<br> <%= link_to 'Back', root_path %>
+  <%= link_to 'New Fact Check', new_fact_check_path %>
 
 </div>

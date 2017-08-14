@@ -1,15 +1,15 @@
 <div class="container">
 
-<div>
-  <h2> Details: </h2>
-  <%= render 'moderators_table', moderators: [@moderator] %>
-</div>
+  <div class="row">
+    <h2>Moderator details</h2>
+    <%= render 'moderators_table', moderators: [@moderator] %>
+  </div>
 
-<div>
-  <h2> Fact Checks verified: </h2>
-  <%= render 'fact_checks/fact_checks_table', fact_checks: @moderator.fact_checks %>
-</div>
+  <div class="row">
+    <h4>Fact Checks verified by <%= @moderator.getName %></h4>
+    <%= render 'fact_checks/fact_checks_table', fact_checks: @moderator.fact_checks %>
+  </div>
 
-<%= link_to 'Back', moderators_path %>
+  <%= link_to 'Back', moderators_path %>
 
 </div>

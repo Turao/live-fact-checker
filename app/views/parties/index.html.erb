@@ -1,11 +1,10 @@
 <div class="container">
 
-<div>
-  <h1>Parties</h1>
-  <%= render 'parties_table', parties: @parties %>
-</div>
+  <div class="row">
+    <h1>Parties</h1>
+    <%= render 'parties_table', parties: @parties %>
+  </div>
 
-<%= link_to 'New Party', new_party_path %>
-<br> <%= link_to 'Back', root_path %>
+  <%= link_to 'New Party', new_party_path %>
 
 </div>
