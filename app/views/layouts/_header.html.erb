@@ -1,24 +1,32 @@
 <!-- Fixed top navbar -->
+
+<!-- navbars are fluid by default -->
 <nav class="navbar
+            navbar-toggleable-sm
             navbar-inverse
-            navbar-fixed-top
-            bg-inverse">
-    <div class="navbar-header">
+            bg-inverse
+            justify-content-end">
+    
+      <a class="navbar-brand" href=<%= root_path %>> 
+        Live Fact Checker
+      </a>
 
-    <!-- sidebar toggle button -->
-    <button class="navbar-toggler"
-            type="button" 
-            data-toggle="collapse"
-            data-target="#sidebarCollapse"
-            aria-controls="sidebarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle sidebar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <a class="navbar-brand" href=<%= root_path %>> 
-      Live Fact Checker
-    </a>
 
-  </div>
+      <!-- User related stuff -->
+      <% if person_signed_in? %>
+
+          <span class="glyphicon glyphicon-user" aria-label="User"></span>
+
+          <%= link_to current_person.name, current_person, :class => "nav-link" %> 
+          <%= link_to 'Logout', destroy_person_session_path, method: :delete, :class => "nav-link" %> </li>
+
+      <% else %>
+
+          <%= link_to 'Sign In', checkers_path, :class => "nav-link" %>
+          <%= link_to 'Sign Up', new_person_path, :class => "nav-link"  %>
+
+      <% end %>
+    
+
 </nav>
